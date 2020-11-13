@@ -1,0 +1,62 @@
+﻿@page
+@model WebDB_Slava_.Pages.FilReq.Request.MenuModel
+@{
+
+}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Меню
+                </th>
+                <th>
+                    Склад
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Menu)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name_dish)
+                    </td>
+                    <td>
+                        <ol>
+                            @{
+                                string ing;
+                                try
+                                {
+                                    ing = Model.Warehouse.First(M => M.ID == item.ID_Ingredient_1).Name_Ingredient;
+                                    <li>@ing</li>
+                                }
+                                catch
+                                {
+                                    <li>нет</li>
+                                }
+                                try
+                                {
+                                    ing = Model.Warehouse.First(M => M.ID == item.ID_Ingredient_2).Name_Ingredient;
+                                    <li>@ing</li>
+
+                                }
+                                catch
+                                {
+                                    <li>нет</li>
+                                }
+                                try
+                                {
+                                    ing = Model.Warehouse.First(M => M.ID == item.ID_Ingredient_3).Name_Ingredient;
+                                    <li>@ing</li>
+                                }
+                                catch
+                                {
+                                    <li>нет</li>
+                                }
+                            }
+                        </ol>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

@@ -1,0 +1,79 @@
+﻿@page
+@model WebDB_Slava_.Pages.FilReq.Request.OrderModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Заказчик
+            </th>
+            <th>
+                Меню
+            </th>
+            
+            <th>
+                Сотрудники
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Order)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FGS_employer)
+                </td>
+                <td>
+                    <ol>
+                        @{
+                            string NameDish;
+                            try
+                            {
+                                NameDish = Model.Menu.First(M => M.ID == item.ID_dish_1).Name_dish;
+                                <li>@NameDish</li>
+                            }
+                            catch
+                            {
+                                <li>нет</li>
+                            }
+                            try
+                            {
+                                NameDish = Model.Menu.First(M => M.ID == item.ID_dish_2).Name_dish;
+                                <li>@NameDish</li>
+
+                            }
+                            catch
+                            {
+                                <li>нет</li>
+                            }
+                            try
+                            {
+
+                                NameDish = Model.Menu.First(M => M.ID == item.ID_dish_3).Name_dish;
+                                <li>@NameDish</li>
+                            }
+                            catch
+                            {
+                                <li>нет</li>
+                            }
+                        }
+                    </ol>
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employee.First(M => M.ID == item.IDemployees).FGS
+                        }
+                        catch
+                        {
+                            <p>нет</p>
+                        }
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

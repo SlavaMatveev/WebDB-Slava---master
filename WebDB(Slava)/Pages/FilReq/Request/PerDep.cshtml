@@ -1,0 +1,42 @@
+﻿@page
+@model WebDB_Slava_.Pages.FilReq.Request.PositionModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Сотрудники
+            </th>
+            <th>
+                Должности
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employee)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FGS)
+
+            </td>
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Position.First(M => M.ID == item.ID).Name_Positions
+
+                    }
+                    catch
+                    {
+                        <p>нет</p>
+                    }
+                }
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

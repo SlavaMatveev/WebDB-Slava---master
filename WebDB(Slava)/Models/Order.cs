@@ -11,6 +11,8 @@ namespace RESTAURANT.Models
 {
     public class Order
     {
+
+
         [Display(Name = "Код заказа")]
         public long ID { get; set; }
         [Display(Name = "Время")]

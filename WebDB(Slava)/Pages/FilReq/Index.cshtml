@@ -2,6 +2,18 @@
 @model WebDB_Slava_.Pages.FilReq.IndexModel
 @{
 }
+<script>
+    function BtnFun(ClassName, obj) {
+        var value = obj.value;
+        var name = "." + ClassName;
+        if (value[0] != "-") {
+            $(name).prop('disabled', false);
+        }
+        else {
+            $(name).prop('disabled', true);
+        }
+    }
+</script>
 <div class="accordion" id="accordionExample">
     <div class="card">
         <div class="card-header" id="headingOne">
@@ -28,14 +40,43 @@
         <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
                 <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    фильтры
+                    Фильтры
                 </button>
             </h5>
         </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
+        <div class="card-body">
 
-            </div>
+            <form>
+                Фильтр сотрудников по должности:
+                <select asp-items="Model.SelPosition" name="id" class="form-control-sm" onclick="BtnFun('FilPos', this)">
+                    <option value="-1">не выбран</option>
+                </select>
+                <button asp-page="Filter/FilterPosition" class="btn btn-primary FilPos" disabled>Отфильтровать</button>
+            </form>
+
+        </div>
+        <div class="card-body">
+
+            <form>
+                Фильтр выполненных и невыполненных заказов:
+                <select asp-items="Model.SelFind" name="find" class="form-control-sm" onclick="BtnFun('FilFind', this)">
+                    <option value="-1">не выбран</option>
+                </select>
+                <button asp-page="Filter/FilterOrder" class="btn btn-primary FilFind" disabled>Отфильтровать</button>
+            </form>
+
+    </div>
+    <div class="card-body">
+
+    <form>
+        Фильтр отображения ингредиентов определённых поставщиков:
+        <select asp-items="Model.SelWare" name="ing" class="form-control-sm" onclick="BtnFun('FilWare', this)">
+            <option value="-1">не выбран</option>
+        </select>
+        <button asp-page="Filter/FilterWarehouse" class="btn btn-primary FilWare" disabled>Отфильтровать</button>
+    </form>
+
+</div>
         </div>
     </div>
-</div>
+    </div>

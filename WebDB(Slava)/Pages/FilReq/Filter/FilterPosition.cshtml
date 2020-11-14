@@ -1,0 +1,58 @@
+﻿@page
+@model WebDB_Slava_.Pages.FilReq.Filter.FilterPositionModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].FGS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Old)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Pasport)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employee)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FGS)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Old)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Telefon)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Pasport)
+    </td>
+    <td>
+        
+        @Model.Employee.First(r => r.ID == item.PositionsID).ID
+          
+    </td>
+
+</tr>}
+    </tbody>
+</table>

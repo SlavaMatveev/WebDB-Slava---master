@@ -33,6 +33,8 @@ namespace RESTAURANT.Models
         public string Pasport { get; set; }
         
         [Display(Name = "Код должности")]
+        public long? PositionsID { get; set; }
+        [Display(Name = "Должность")]
         public  DbSet<Position> ID_Positions { get; set; }
         
 

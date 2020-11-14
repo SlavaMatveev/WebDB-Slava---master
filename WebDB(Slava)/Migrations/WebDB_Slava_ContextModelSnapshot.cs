@@ -41,6 +41,9 @@ namespace WebDB_Slava_.Migrations
                     b.Property<string>("Pasport")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long?>("PositionsID")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("Telefon")
                         .HasColumnType("int");
 
@@ -142,8 +145,8 @@ namespace WebDB_Slava_.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("check")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("check")
+                        .HasColumnType("bit");
 
                     b.HasKey("ID");
 

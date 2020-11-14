@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\FilReq\Filter\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

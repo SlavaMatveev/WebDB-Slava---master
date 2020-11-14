@@ -18,7 +18,8 @@ namespace WebDB_Slava_.Migrations
                     Gender = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     Telefon = table.Column<int>(nullable: false),
-                    Pasport = table.Column<string>(nullable: true)
+                    Pasport = table.Column<string>(nullable: true),
+                    PositionsID = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -33,7 +34,7 @@ namespace WebDB_Slava_.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Time = table.Column<DateTime>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
-                    check = table.Column<string>(nullable: true),
+                    check = table.Column<bool>(nullable: false),
                     Cost = table.Column<int>(nullable: false),
                     FGS_employer = table.Column<string>(nullable: true),
                     Telefon = table.Column<int>(nullable: false),

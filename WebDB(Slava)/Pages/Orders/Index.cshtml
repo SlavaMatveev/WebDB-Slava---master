@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Order[0].FGS_employer)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Order[0].Time)
             </th>
             <th>
@@ -25,11 +28,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.Order[0].Cost)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].FGS_employer)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Order[0].Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].dish_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].dish_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].dish_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ID_employees)
             </th>
             <th></th>
         </tr>
@@ -54,6 +67,45 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Order/Details" asp-route-id="@item.ID_dish_1" style="color: #000; text-decoration: none;">
+            @Model.Order.First(r => r.ID == item.ID_dish_1).dish_1
+        </a> }
+    catch
+    {
+        <p>нет</p> } }
+            </td>
+            <td>
+                @{ try
+                    {
+                        <a asp-page="../Order/Details" asp-route-id="@item.ID_dish_2" style="color: #000; text-decoration: none;">
+                            @Model.Order.First(r => r.ID == item.ID_dish_2).dish_2</a> }
+                    catch
+                    {
+                        <p>нет</p> } }
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Order/Details" asp-route-id="@item.ID_dish_3" style="color: #000; text-decoration: none;">
+            @Model.Order.First(r => r.ID == item.ID_dish_3).dish_3
+        </a> }
+    catch
+    {
+        <p>нет</p> } }
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Order/Details" asp-route-id="@item.IDemployees" style="color: #000; text-decoration: none;">
+            @Model.Order.First(r => r.ID == item.IDemployees).FGS_employer
+        </a> }
+    catch
+    {
+        <p>нет</p> } }
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Редактирование</a> |

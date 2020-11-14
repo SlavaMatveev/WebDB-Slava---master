@@ -56,6 +56,20 @@
                 @Html.DisplayFor(modelItem => item.Pasport)
             </td>
             <td>
+                @{
+                    try
+                    {
+                        <a asp-page="../Employee/Details" asp-route-id="@item.PositionsID" style="color: #000; text-decoration: none;">
+                            @Model.Employee.First(r => r.ID == item.PositionsID).FGS
+                        </a>
+                    }
+                    catch
+                    {
+                        <p>нет</p>
+                    }
+                }
+            </td>
+            <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Редактирование</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Подробности</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Удаление</a>

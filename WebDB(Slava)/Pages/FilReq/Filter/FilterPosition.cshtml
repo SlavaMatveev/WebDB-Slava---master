@@ -23,6 +23,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].Pasport)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].ID_Positions)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -49,7 +52,7 @@
     </td>
     <td>
         
-        @Model.Employee.First(r => r.ID == item.PositionsID).ID
+        @Model.Position.Name_Positions
           
     </td>
 

@@ -6,6 +6,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Order[0].FGS_employer)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Order[0].Time)
             </th>
             <th>
@@ -18,83 +21,94 @@
                 @Html.DisplayNameFor(model => model.Order[0].Cost)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].FGS_employer)
+                @Html.DisplayNameFor(model => model.Order[0].Telefon)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].dish_1)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].Telefon)
+                @Html.DisplayNameFor(model => model.Order[0].dish_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].dish_3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ID_employees)
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Order)
         {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Time)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Date)
-    </td>
-    <td>
-        @{
-            if (item.check)
-            {
-                <p>Выполнен</p>
-            }
-            else
-            {
-                <p>Не выполнен</p>
-            }
-        }
-<td>
-        @Html.DisplayFor(modelItem => item.Cost)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FGS_employer)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Telefon)
-    </td>
-    <td>
-        @{ try
-            {
-<a asp-page="../Order/Details" asp-route-id="@item.ID_dish_1" style="color: #000; text-decoration: none;">
-    @Model.Order.First(r => r.ID == item.ID_dish_1).FGS_employer
-</a> }
-catch
-{
-<p>нет</p> } }
-    </td>
-    <td>
-        @{ try
-            {
-<a asp-page="../Order/Details" asp-route-id="@item.ID_dish_2" style="color: #000; text-decoration: none;">
-    @Model.Order.First(r => r.ID == item.ID_dish_2).FGS_employer
-</a> }
-catch
-{
-<p>нет</p> } }
-    </td>
-    <td>
-        @{ try
-            {
-<a asp-page="../Order/Details" asp-route-id="@item.ID_dish_3" style="color: #000; text-decoration: none;">
-    @Model.Order.First(r => r.ID == item.ID_dish_3).FGS_employer
-</a> }
-catch
-{
-<p>нет</p> } }
-    </td>
-    <td>
-        @{ try
-            {
-<a asp-page="../Order/Details" asp-route-id="@item.IDemployees" style="color: #000; text-decoration: none;">
-    @Model.Order.First(r => r.ID == item.IDemployees).FGS_employer
-</a> }
-catch
-{
-<p>нет</p> } }
-    </td>
-</tr>}
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FGS_employer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @{
+                    if (item.check)
+                    {
+                        <p>Выполнен</p>
+                    }
+                    else
+                    {
+                        <p>Не выполнен</p>
+                    }
+                }
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Menu/Details" asp-route-id="@item.ID_dish_1" style="color: #000; text-decoration: none;">
+            @Model.Menu.First(r => r.ID == item.ID_dish_1).Name_dish
+        </a> }
+    catch
+    {
+        <p>нет</p> } }
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Menu/Details" asp-route-id="@item.ID_dish_2" style="color: #000; text-decoration: none;">
+            @Model.Menu.First(r => r.ID == item.ID_dish_2).Name_dish
+        </a> }
+    catch
+    {
+        <p>нет</p> } }
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Menu/Details" asp-route-id="@item.ID_dish_3" style="color: #000; text-decoration: none;">
+            @Model.Menu.First(r => r.ID == item.ID_dish_3).Name_dish
+        </a> }
+    catch
+    {
+        <p>нет</p> } }
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Employees/Details" asp-route-id="@item.IDemployees" style="color: #000; text-decoration: none;">
+            @Model.Employee.First(r => r.ID == item.IDemployees).FGS
+        </a> }
+    catch
+    {
+        <p>нет</p> } }
+            </td>
+        </tr>}
     </tbody>
 </table>

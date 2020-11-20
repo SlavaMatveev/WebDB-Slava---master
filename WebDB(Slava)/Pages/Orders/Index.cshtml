@@ -51,6 +51,9 @@
 @foreach (var item in Model.Order) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.FGS_employer)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
@@ -62,17 +65,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FGS_employer)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Telefon)
             </td>
             <td>
                 @{ try
                     {
-        <a asp-page="../Order/Details" asp-route-id="@item.ID_dish_1" style="color: #000; text-decoration: none;">
-            @Model.Order.First(r => r.ID == item.ID_dish_1).dish_1
+        <a asp-page="../Menu/Details" asp-route-id="@item.ID_dish_1" style="color: #000; text-decoration: none;">
+            @Model.Menu.First(r => r.ID == item.ID_dish_1).Name_dish
         </a> }
     catch
     {
@@ -81,18 +82,9 @@
             <td>
                 @{ try
                     {
-                        <a asp-page="../Order/Details" asp-route-id="@item.ID_dish_2" style="color: #000; text-decoration: none;">
-                            @Model.Order.First(r => r.ID == item.ID_dish_2).dish_2</a> }
-                    catch
-                    {
-                        <p>нет</p> } }
-            </td>
-            <td>
-                @{ try
-                    {
-        <a asp-page="../Order/Details" asp-route-id="@item.ID_dish_3" style="color: #000; text-decoration: none;">
-            @Model.Order.First(r => r.ID == item.ID_dish_3).dish_3
-        </a> }
+                        <a asp-page="../Menu/Details" asp-route-id="@item.ID_dish_2" style="color: #000; text-decoration: none;">
+                            @Model.Menu.First(r => r.ID == item.ID_dish_2).Name_dish
+                        </a> }
     catch
     {
         <p>нет</p> } }
@@ -100,8 +92,18 @@
             <td>
                 @{ try
                     {
-        <a asp-page="../Order/Details" asp-route-id="@item.IDemployees" style="color: #000; text-decoration: none;">
-            @Model.Order.First(r => r.ID == item.IDemployees).FGS_employer
+                        <a asp-page="../Menu/Details" asp-route-id="@item.ID_dish_3" style="color: #000; text-decoration: none;">
+                            @Model.Menu.First(r => r.ID == item.ID_dish_3).Name_dish
+                        </a> }
+    catch
+    {
+        <p>нет</p> } }
+            </td>
+            <td>
+                @{ try
+                    {
+        <a asp-page="../Employees/Details" asp-route-id="@item.IDemployees" style="color: #000; text-decoration: none;">
+            @Model.Employee.First(r => r.ID == item.IDemployees).FGS
         </a> }
     catch
     {

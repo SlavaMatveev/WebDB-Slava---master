@@ -2,6 +2,7 @@
 @model WebDB_Slava_.Pages.FilReq.IndexModel
 @{
 }
+
 <script>
     function BtnFun(ClassName, obj) {
         var value = obj.value;
@@ -65,18 +66,18 @@
                 <button asp-page="Filter/FilterOrder" class="btn btn-primary FilFind" disabled>Отфильтровать</button>
             </form>
 
-    </div>
-    <div class="card-body">
+        </div>
+        <div class="card-body">
 
-    <form>
-        Фильтр отображения ингредиентов определённых поставщиков:
-        <select asp-items="Model.SelWare" name="ing" class="form-control-sm" onclick="BtnFun('FilWare', this)">
-            <option value="-1">не выбран</option>
-        </select>
-        <button asp-page="Filter/FilterWarehouse" class="btn btn-primary FilWare" disabled>Отфильтровать</button>
-    </form>
+            <form>
+                Фильтр отображения ингредиентов определённых поставщиков:
+                <select asp-items="Model.SelWare" name="ing" class="form-control-sm" onclick="BtnFun('FilWare', this)">
+                    <option value="-1">не выбран</option>
+                </select>
+                <button asp-page="Filter/FilterWarehouse" class="btn btn-primary FilWare" disabled>Отфильтровать</button>
+            </form>
 
-</div>
         </div>
     </div>
-    </div>
+</div>
+   

@@ -19,7 +19,7 @@ namespace WebDB_Slava_.Pages.FilReq.Filter
         }
         public IList<Order> Order { get; set; }
         public IList<RESTAURANT.Models.Menu> Menu { get; set; }
-
+        public IList<Employee> Employee { get; set; }
 
 
 
@@ -31,6 +31,7 @@ namespace WebDB_Slava_.Pages.FilReq.Filter
             }
             Order = await _context.Order.Where(m => m.check == find).ToListAsync();
             Menu = await _context.Menu.ToListAsync();
+            Employee = await _context.Employee.ToListAsync();
             if (Order == null)
             {
                 return NotFound();
